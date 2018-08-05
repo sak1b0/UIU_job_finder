@@ -1,0 +1,76 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width: 450px;
+    
+}
+.card_cv {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width: 450px;
+    
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+    border-radius: 5px 5px 0 0;
+}
+.btn-link
+{
+    color:white;
+    font-family: sans-serif;
+    border-radius: 2px;
+    background-color: orange;
+    border-color: whitesmoke;
+}
+.btn-link:hover
+{
+    color:white;
+    font-family: sans-serif;
+    border-radius: 2px;
+    background-color: #FF8C00;
+    border-color: black;
+}
+
+.navbar {
+    overflow: hidden;
+    color:black;
+    background-color: lightgray;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+     
+}
+
+/* Links inside the navbar */
+.navbar a {
+    
+    font-family: sans-serif;
+    text-align: right;
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 24px 18px;
+    text-decoration: none;
+    padding-left: 14px;
+     
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    background: orange;
+    color: black;
+}
+
+/* Main content */
+.main {
+    margin-top: 30px; /* Add a top margin to avoid content overlay */
+    color: transparent;
+}
+.topnav-right {
+
+  float: right;
+}
