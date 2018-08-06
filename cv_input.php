@@ -16,20 +16,20 @@
 
 <body>
     <div class="container">
-        <form action="includes/reg_attempt.php " method="post">
+        <form action="huda.php " method="post">
             <div class="row">
                 <h4>Information for CV</h4>
                 <div class="input-group input-group-icon">
-                    <input name="name" type="text" placeholder="Full Name" required/>
+                    <input name="name" type="text" placeholder="Full Name" />
                     <div class="input-icon"><i class="fa fa-user"></i></div>
                 </div>
                 <div class="input-group input-group-icon">
-                    <input name="name" type="text" placeholder="UIU ID" required/>
+                    <input name="id" type="text" placeholder="UIU ID" />
                     <div class="input-icon"><i class="fa fa-file"></i></div>
                 </div>
 
                 <div class="input-group input-group-icon">
-                    <input name="email" type="email" placeholder="Email Address" required/>
+                    <input name="email" type="email" placeholder="Email Address" />
                     <div class="input-icon"><i class="fa fa-envelope"></i></div>
                 </div>
                 <div class="input-group input-group-icon">
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="input-group input-group-icon">
-                    <input name="password" type="password" placeholder="Password" required/>
+                    <input name="password" type="password" placeholder="Password" />
                     <div class="input-icon"><i class="fa fa-key"></i></div>
                 </div>
 
@@ -51,7 +51,7 @@
                     <h4>Date of Birth</h4>
                     <div class="input-group">
                         <div class="col-sixth">
-                            <input name="date" type="date" placeholder="Date" required/>
+                            <input name="date" type="date" placeholder="Date" />
                         </div>
                        
                     </div>
@@ -69,7 +69,7 @@
 
 
 
-        </form>
+       
         <!--skill starts here -->
         <div class="row">
             <h4>Please select your Skill Set</h4>
@@ -81,14 +81,15 @@
                 <div class="row">
 
                     <?php 
-              $arr=array("asp.net","c++","c","java","c#","go","kotlin","ruby","r","swift","php","python","javascript","laravel","angular.js","node.js","spring","android","ios");
-                    sort($arr);
+                    include"all_info.php";
+                    
+                sort($arr);
               for($i=0;$i < count($arr); $i++)
               { ?>
 
                     <label class="containerr" ><?php echo $arr[$i]; ?> 
                     &ensp;
-                     <input type="checkbox" name="<?php echo $arr[$i]; ?> " >
+                     <input type="checkbox" name="<?php echo $arr[$i]; ?> value="<?php echo $arr[$i]; ?>" " >
                     <span class="checkmark"></span>
                     </label>
 
@@ -120,7 +121,7 @@
 
 
         <!--skill ends here -->
-        
+         
         <div class="row">
         <h4>Achievements/ECC</h4>
                     <div class="input-group input-group-icon">
@@ -138,18 +139,13 @@
         </div>
         
         <div class="row">
+                    <form action="/huda.php" method="post">
+                        <a><button class="cv-submit" type="submit" name="submit" >Submit</button></a>
+                    </form>
                     
-                    <a><button 
-                 style="color:white;
-                    padding-left: 5px;
-                    font-family: sans-serif;
-                    border-radius: 2px;
-                    background-color: orange;
-                    border-color: whitesmoke;"
-                type="submit" >Submit</button></a>
                 </div>
          
-
+            </form>
 
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
@@ -162,3 +158,4 @@
 
 
 </html>
+

@@ -22,8 +22,9 @@ img {
     color:white;
     font-family: sans-serif;
     border-radius: 2px;
-    background-color: orange;
+    background-color: #08f;
     border-color: whitesmoke;
+    height:30px;
 }
 .btn-link:hover
 {
@@ -37,7 +38,7 @@ img {
 .navbar {
     overflow: hidden;
     color:black;
-    background-color: lightgray;
+    background-color: #fff; /*lightgray*/
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
@@ -47,22 +48,24 @@ img {
 /* Links inside the navbar */
 .navbar a {
     
+    padding: 10px 24px;
     font-family: sans-serif;
-    text-align: right;
     float: left;
-    display: block;
-    color: black;
+    color: white;
+    background-color: #08c;
     text-align: center;
-    padding: 24px 18px;
+    padding: 14px 16px;
     text-decoration: none;
-    padding-left: 14px;
+    font-size: 17px;
+    border-radius: 4px;
      
 }
 
 /* Change background on mouse-over */
 .navbar a:hover {
-    background: orange;
-    color: black;
+    background: #08f;
+    color: white;
+    font-size: 17px;
 }
 
 /* Main content */
@@ -72,5 +75,51 @@ img {
 }
 .topnav-right {
 
-  float: right;
+ float: right;
+    color: #f2f2f2;
+    font-size: 18px;
+    text-align: middle;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 17px;
+   vertical-align: -5px;
+}
+
+.material-icons {
+  vertical-align: middle;
+  margin-right: 1px;
+padding-bottom: 6px;
+    
+}
+.search-box{
+    padding: 26px 16px;
+    vertical-align: middle;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+.nav-btn{
+    padding: 10px 24px;
+    background-color: #08c;
+    color: white;
+    border: 2px solid white; 
+    border-radius: 5px;
+    font-weight: 900;
+    width: 90;
+   
+}
+.nav-btn:hover{
+    padding: 10px 24px;
+     background: #08f;
+    color: white;
+    border: 2px solid white; 
+    
+}
+.colform{
+    float:left;
+    
 }
