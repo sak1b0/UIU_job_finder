@@ -12,7 +12,7 @@
                 $cnt++;
             }
         }
-        echo $cnt;
+       // echo $cnt;
     }
 ?>
 <!DOCTYPE html>
@@ -23,25 +23,31 @@
 
 </head>
 <body>
-    <div>
     
+    <div class="navbar">
+            <img src="img/uiu-logo.png">
+        <ul>
+
+          <li><a href="index.php">Home</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+        <li><form class="" action="search_result.php" method="post">
+             <input class="search-box"name="s" id="s" type="text" value="" placeholder="Search Jobs" autocomplete="off">    
+        </form></li>
+
+        </ul>
     </div>
-<img src="img/uiu-logo.png">
-<ul>
     
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  
-</ul>
-    <div align="center">
+   
+    <div class="row">
+        <div align="center">
     <div class="card">
  
-  <div class="row">
+        <div class="row">
     
     <div class="column">
-        <p>Left</p> 
-        <h4><b>Robin Doe</b></h4> 
+        
+        <h1><b>Ridwan Kawser Robin</b></h1> 
     </div>
     
       
@@ -58,13 +64,20 @@
     <i class="material-icons" style="position:relative;top:5px;">email</i>
               elon@musk.com
           </div>
+          <div class="row">
+    <i class="material-icons" style="position:relative;top:5px;">room</i>
+          aaaaaaaaaaaaaa pashei baridhara,dhaka
+          </div>
         
         
     </div>
-  </div>
+        </div>
         
 </div>
     </div>
+    </div>
+
+
 
 </body>
 </html>

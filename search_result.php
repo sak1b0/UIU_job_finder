@@ -1,36 +1,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/cv_display_style.css";>
+<body>
 <div class="navbar">
+            <img src="img/uiu-logo.png">
+        <ul>
 
-    <img src="img/uiu-logo.png">
-    
-    
-    <div class="topnav-right">
-    
-        <form class="colform" action="search_result.php" method="post">
-             <input class="search-box"name="s" id="s" type="text" value="" placeholder="Search Jobs" autocomplete="off">    
-        </form>
+          <li><a href="index.php"><i class="material-icons"style="position:relative;top:5px;">home</i>Home</a></li>
+          <li><a href="#news"><i class="material-icons"style="position:relative;top:5px;">description</i>News</a></li>
+          <li><a href="#contact"><i class="material-icons"style="position:relative;top:5px;">account_box</i>Contact</a></li>
+        <li><form class="" action="search_result.php" method="post">
+             <input class="search-box"name="s" id="s" type="text" value="" placeholder="Search Jobs" autocomplete="off">
+            <button type="submit"><i class="material-icons">search</i></button>
+        </form></li>
 
-        <form class="colform" action="index.php" method="post">
-            <button class="nav-btn" ><i class="material-icons">home</i> Home </button>
-        </form>
-
-        <!--form class="colform" action="cv_input.php" method="post">
-        <button type="submit" action="cv_input.php" class="nav-btn"><i class="material-icons">description</i> CV </button>
-        </form-->
-
-        <form class="colform" action="#" method="post">
-            <button  class="nav-btn"><i class="material-icons">account_box</i> Login </button>
-        </form>
-
-   
+        </ul>
     </div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
+</body>
+
+ 
+
 <div></div>
 <?php 
    
@@ -57,9 +46,9 @@
         ///this is where html begins
        ?>
     <div align="center">
-        <div class="card" align="left">
-            <link rel="stylesheet" href="style.css">
-            <div class="container">
+        <div class="rescard" align="left">
+            <link rel="stylesheet" href="/css/cv_display_style.css">
+            <div class="row">
                 <h4><b><?php echo $line[0];?></b></h4>
                 <p>
                     <?php echo $line[1];?>
@@ -85,9 +74,9 @@
     else 
     {   ?>
          <div align="center">
-        <div class="card" align="left">
-            <link rel="stylesheet" href="style.css">
-            <div class="container" style="height:20px;">
+        <div class="rescard" align="left">
+            <link rel="stylesheet" href="css/cv_display_style.css">
+            <div class="row" style="height:20px;">
                
              <h4><?php echo $result." results were found"; ?></h4>   
 

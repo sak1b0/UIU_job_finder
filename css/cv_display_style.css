@@ -1,11 +1,86 @@
 .card {
+    opacity: 0.5;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 1px; /* 5px rounded corners */
+    width: 400px;
+    height: 140px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    font-family: roboto;
+    background-color: whitesmoke;
+    backface-visibility: hidden;
+    opacity: 0.8;
+      
+}
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 1px; /* 5px rounded corners */
+    width: 400px;
+    height: 140px;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    opacity: 1.0;
+}
+
+.bottom{
+ background-image: url("../img/bg.jpg"); 
+    height: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 1920px 768px;
+}
+
+.container{
+   
+}
+
+.btn-link
+{
+   
+    color:black;
+    font-family: sans-serif;
+    border-radius: 2px;
+    background-color: #ffc87c;
+    border-color: whitesmoke;
+    height:30px;
+}
+.rescard {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    width: 800px;
-    height: 800px;
+    width: 450px;
+    height: 200px;
+    padding: 0px 0px 0px 0px;
     
 }
+.navbar{
+    overflow: hidden;
+    color:black;
+    background-color: #fff; /*lightgray*/
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    padding: 0px 0px 0px 0px;
+    z-index: 9;
+    
+  
+}
+
+.navbar ul {
+    
+  height: 48px;;
+     
+}
+
+.search-box{
+    padding: 14px 5px;
+    vertical-align: middle;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 .line-in-middle {
     width:200px;
     height:700px;
@@ -50,15 +125,17 @@ ul {
 li {
     float: left;
     overflow: hidden;
+   
 }
 
 li a {
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 20px;
     text-decoration: none;
     overflow: hidden;
+   
 }
 
 li a:hover:not(.active) {

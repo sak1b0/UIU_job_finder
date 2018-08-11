@@ -16,7 +16,7 @@
 
 <body>
     <div class="container">
-        <form action="huda.php " method="post">
+        <form action="cv_display.php " method="post">
             <div class="row">
                 <h4>Information for CV</h4>
                 <div class="input-group input-group-icon">
@@ -36,13 +36,18 @@
                     <input name="tel" type="tel" placeholder="Contact Number" />
                     <div class="input-icon"><i class="fa fa-phone"></i></div>
                 </div>
+                
+                <div class="input-group input-group-icon">
+                    <input name="tel" type="text" placeholder="Current Address" />
+                    <div class="input-icon"><i class="fa fa-home"></i></div>
+                </div>
 
                 <div class="input-group input-group-icon">
                     <input name="password" type="password" placeholder="Password" />
                     <div class="input-icon"><i class="fa fa-key"></i></div>
                 </div>
 
-                <!-- skill sets start-->
+                
 
 
             </div>
@@ -80,25 +85,23 @@
             <div class="col">
                 <div class="row">
 
-                    <?php 
-                    include"all_info.php";
-                    
+             <?php 
+                include"all_info.php";   
                 sort($arr);
-              for($i=0;$i < count($arr); $i++)
-              { ?>
+                for($i=0;$i < count($arr); $i++)
+                { ?>
 
                     <label class="containerr" ><?php echo $arr[$i]; ?> 
                     &ensp;
-                     <input type="checkbox" name="<?php echo $arr[$i]; ?> value="<?php echo $arr[$i]; ?>" " >
+                     <input type="checkbox" name="<?php echo $arr[$i]; ?>" value="<?php echo $arr[$i]; ?>" >
                     <span class="checkmark"></span>
                     </label>
 
 
-                    <?php
-             }
+             
+        <?php }  ?>
          
-                    ?>
-
+               
                 </div>
                 <div class="col-half">
                     <div class="row"></div>
