@@ -48,7 +48,14 @@
     $all_job_count=sizeof($job_arr);
     
     $res_tit='default tai ase';
-    echo $res_tit;
+    if(isset($_POST['huda']))
+    {   
+        $ind=$_POST['huda'];
+       
+        echo $job_arr[$ind]->title;
+    }
+    
+    
        // $res_tit = $_POST['huda'];
     
     /*for($i=0;$i<sizeof($job_arr);$i++)

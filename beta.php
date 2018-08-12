@@ -24,17 +24,19 @@
             url: 'all_info.php',
             data:  { huda:p1},
              success: function(result) {
+                 console.log(result);
                 $('#jinish').html(result);
             },
             error: function() {
                 alert('Some error found. Please try again!');
             }
-    });
+                });
             var par= document.getElementById('mid');
             var chi= document.createElement('div');
             chi.className='card';
             
-            var one=document.createTextNode('<?php echo $res_tit; ?>'); //here
+            var one=document.createTextNode('title'); //here
+            one.id='abc';
             var two=document.createElement('p');
             var cmp=document.createTextNode('Company'); //here
             two.appendChild(cmp);
@@ -43,6 +45,8 @@
             var line=document.createElement('br');
             three.appendChild(txt);
             three.href='http://www.google.com'; //here the changes will be made
+            
+         
             
             
             chi.appendChild(one);
@@ -53,6 +57,8 @@
             chi.appendChild(document.createElement('br'));
             
             par.appendChild(chi);
+         
+         
             
         }
         
