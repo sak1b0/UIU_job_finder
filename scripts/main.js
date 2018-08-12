@@ -9,12 +9,12 @@
      chi.id = 'card';
 
 
-     var one = document.createElement('h4');
+     var one = document.createElement('h5');
      one.id = p1.toString() + 'title';
      // var tit = document.createTextNode('title'); 
      // one.appendChild(tit);
 
-     var two = document.createElement('h5');
+     var two = document.createElement('h6');
      two.id = p1.toString() + 'company'; //parameter value +company
      // var cmp = document.createTextNode('Company'); //here
      //  two.appendChild(cmp);
@@ -39,6 +39,7 @@
      par.appendChild(chi); //the card gets added to the div
 
      var gap = document.createElement('br');
+     gap.id='gap';
      par.appendChild(gap);
 
 
@@ -100,7 +101,9 @@
      if (card_count > 0) {
          var par = document.getElementById('mid');
          var chi = document.getElementById('card');
+         var g=document.getElementById('gap');
          chi.parentNode.removeChild(chi);
+         g.parentNode.removeChild(g);
          card_count--;
      }
 
