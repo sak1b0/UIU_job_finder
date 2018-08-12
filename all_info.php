@@ -38,7 +38,7 @@
             continue;
         }
         
-        $obj= new MyClass($line[0],$line[1],$line[2]);
+        $obj= new MyClass($line[0],$line[1],$line[2]); //new jobs object create 
         array_push($job_arr,$obj);
        
       } 
@@ -47,16 +47,30 @@
     
     $all_job_count=sizeof($job_arr);
     
-    $res_tit='default tai ase';
+    if(isset($_POST['tit']))
+    {   
+        $ind1=$_POST['tit'];
+       
+        echo $job_arr[$ind1]->title;
+         
+        //echo json_encode(array("a" => 'momina', "b" => "muhtehsan", "c" => 'sakib')); 
+       
+    }
+   
     if(isset($_POST['huda']))
     {   
-        $ind=$_POST['huda'];
-       
-        echo $job_arr[$ind]->title;
+        $ind2=$_POST['huda'];
+        echo $job_arr[$ind2]->company;
+        
     }
-    
-    
-       // $res_tit = $_POST['huda'];
+
+    if(isset($_POST['lnk']))
+    {   
+        $ind2=$_POST['lnk'];
+        echo $job_arr[$ind2]->lnk;
+    }
+
+     
     
     /*for($i=0;$i<sizeof($job_arr);$i++)
     {

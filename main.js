@@ -16,3 +16,4 @@ function hope()
     alert(res);
     document.getElementById("jinish").innerHTML=res;
 }
+
