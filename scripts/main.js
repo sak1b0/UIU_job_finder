@@ -110,24 +110,29 @@ function remove_card() {
 
 }
 
-function load_shit() {
+function load_init() {
+    $(document).ready(function () {
+        $.ajax({
+            type: 'POST',
+            url: 'all_info.php',
+            data: {
+                count: 'count'
+            },
+            success: function (result4) {
 
-    $.ajax({
-        type: 'POST',
-        url: 'all_info.php',
-        data: {
-            count: 'count'
-        },
-        success: function (result4) {
+                $('#count').text(result4); // created a dummy p to get job count properly
 
-            $('#count').html(result4); // created a dummy p to get job count properly
+            },
+            error: function () {
+                alert('Some error found. Please try again!'); 
+            }
 
-        },
-        error: function () {
-            alert('Some error found. Please try again!');
-        }
-
+        });
+        
+        $('#0').addClass("active");  //0 page activated
+        
     });
+
 
     for (var i = 0; i < 10; i++) {
         //console.log(typeof i);
@@ -137,11 +142,11 @@ function load_shit() {
 }
 
 function load_cards(s_ind, f_ind) {
-    
+
     remove_card();
-    
+
     all_job_count = document.getElementById('count').innerHTML;
-    
+
     for (var i = s_ind; i < f_ind; i++) {
 
         if (i < all_job_count) {
@@ -154,21 +159,27 @@ function load_cards(s_ind, f_ind) {
 
 function get_index(item) {
 
+    item.class="active";
+    
     var ind = item.innerHTML.replace(/\s+/g, ''); //removing white spaces
+    item.class='active';
+    var sel=item.id;
+    
+    $("opt")
     //console.log(ind);  //this this is the index from where cards should load
     //console.log(ind.length);
     var ff = (parseInt(ind) * 10).toString();
     var ee = ((parseInt(ind) * 10) + 10).toString();
     load_cards(ff, ee);
+    
+    $('#'+sel.toString()).siblings().removeClass("active"); // clearing previous selections
+    $('#'+sel.toString()).addClass("active");
+    
+    
 
 }
 
-$(document).ready(function () {
-    $('#pagination pagination-sm .page-link').click(function () {
-        var id = this.id;
-        alert(id);
-    });
-});
+
 
 
 function page_cnt() {

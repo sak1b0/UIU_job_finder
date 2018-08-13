@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="css/cv_display_style.css" ;>
 
-<body onload="load_shit()">
+<body onload="load_init()">
     <?php include"all_info.php"; ?>
 
     <head>
@@ -66,7 +66,7 @@
         <div class="col"></div>
     </div>
 
-    <div class="row" align="center">
+    <div class="row" align="center"> <!-- main things happens here -->
         <div class="col"></div>
         <div class="col">
             <ul class="pagination pagination-sm">
@@ -74,23 +74,28 @@
                         for($i=0;$i<$all_job_count/10;$i++)
                         { ?>
 
-                <li class="page-item">
+                <li class="page-item" id="<?php echo $i; ?>" >
                     <a class="page-link" onclick="get_index(this)" id="<?php echo $i; ?>">
                         <?php echo $i; ?>
                     </a>
                 </li>
-                
+
 
                 <?php   } ?>
 
             </ul>
         </div>
-        <div class="col">
-        Available jobs right now :<p id="count">jobs are available right now</p>
-        </div>
+        <div class="col"></div>
     </div>
-
-
+    
+    <div class="row">
+        <div class="col"></div>
+    <div class="col">
+        <h4 >Available jobs right now : <span id="count" class="badge badge-primary">New</span></h4>
+    </div>
+    <div class="col"></div>
+        
+    </div>
 
 </body>
 
