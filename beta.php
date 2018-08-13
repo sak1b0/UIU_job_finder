@@ -69,16 +69,17 @@
     <div class="row" align="center">
         <div class="col"></div>
         <div class="col">
-            <ul class="pagination pagination-lg">
+            <ul class="pagination pagination-sm">
                 <?php 
-                        for($i=1;$i<=10;$i++)
+                        for($i=0;$i<$all_job_count/10;$i++)
                         { ?>
 
                 <li class="page-item">
-                    <a class="page-link" href="#" id="<?php echo $i; ?>">
+                    <a class="page-link" onclick="load_cards(this)" id="<?php echo $i; ?>">
                         <?php echo $i; ?>
                     </a>
                 </li>
+                
 
                 <?php   } ?>
 

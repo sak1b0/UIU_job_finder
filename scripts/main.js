@@ -39,7 +39,7 @@
      par.appendChild(chi); //the card gets added to the div
 
      var gap = document.createElement('br');
-     gap.id='gap';
+     gap.id = 'gap';
      par.appendChild(gap);
 
 
@@ -101,7 +101,7 @@
      if (card_count > 0) {
          var par = document.getElementById('mid');
          var chi = document.getElementById('card');
-         var g=document.getElementById('gap');
+         var g = document.getElementById('gap');
          chi.parentNode.removeChild(chi);
          g.parentNode.removeChild(g);
          card_count--;
@@ -115,6 +115,21 @@
          card_count++;
      }
  }
+
+ function load_cards(item) {
+     //alert("ola");
+     var ind = item.innerHTML.replace(/\s+/g, ''); //removing white spaces
+     console.log(ind);
+     console.log(ind.length);
+ }
+
+ $(document).ready(function () {
+     $('#pagination pagination-sm .page-link').click(function () {
+         var id = this.id;
+         alert(id);
+     });
+ });
+
 
  function page_cnt() {
      var all_job_count = '<?php echo $all_job_count; ?>';
