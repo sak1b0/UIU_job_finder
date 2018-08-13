@@ -57,9 +57,9 @@
        
     }
    
-    if(isset($_POST['huda']))
+    if(isset($_POST['cmp']))
     {   
-        $ind2=$_POST['huda'];
+        $ind2=$_POST['cmp'];
         echo $job_arr[$ind2]->company;
         
     }
@@ -70,7 +70,10 @@
         echo $job_arr[$ind2]->lnk;
     }
 
-     
+    if(isset($_POST['count']))
+    {
+        echo $all_job_count;
+    }
     
     /*for($i=0;$i<sizeof($job_arr);$i++)
     {

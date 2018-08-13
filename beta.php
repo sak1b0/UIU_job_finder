@@ -24,7 +24,7 @@
 
     <!--script src="main.js"></script-->
     <div class="row">
-        <div class="col">aaa</div>
+        <div class="col"></div>
         <div class="col">
             <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
                 <form class="form-inline" action="search_result.php">
@@ -75,7 +75,7 @@
                         { ?>
 
                 <li class="page-item">
-                    <a class="page-link" onclick="load_cards(this)" id="<?php echo $i; ?>">
+                    <a class="page-link" onclick="get_index(this)" id="<?php echo $i; ?>">
                         <?php echo $i; ?>
                     </a>
                 </li>
@@ -85,7 +85,9 @@
 
             </ul>
         </div>
-        <div class="col"></div>
+        <div class="col">
+        Available jobs right now :<p id="count">jobs are available right now</p>
+        </div>
     </div>
 
 
