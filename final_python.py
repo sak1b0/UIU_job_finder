@@ -24,24 +24,20 @@ class job:
 
 
 def save_to_csv():
-	try:
-		f=open("jobs.csv","w")
-	except:
-		print("File realted error while saving")
-
-	headers="job_title,company_name,job_link\n"
-	f.write(headers)
-     #len(my_arr)
-	i=0;
-	while(i<len(my_arr)):
+    try:
+        f=open("jobs.csv","w")
+        headers="job_title,company_name,job_link\n"
+        f.write(headers)
+        i=0;
+        while(i<len(my_arr)):
          f.write(my_arr[i].job_position+","+my_arr[i].job_location+","+my_arr[i].job_post_link+","+"\n")
          i+=1
-		#f.write(my_arr[i].job_position+","+my_arr[i].job_location+","+my_arr[i].job_post_link+","+"\n")
-       
-		
-	f.close()
-
-	return		
+    except:
+        print("File realted error while saving")
+    finally:
+        f.close()
+	
+    return		
 
 
 def process_data(page_html):
@@ -62,7 +58,7 @@ def process_data(page_html):
 	    comp_name=companies[i].text.strip()
 	    job_link ="http://jobs.bdjobs.com/"+alllinks[i].a["href"]
 	    j_obj=job(job_name.replace(",","|"),comp_name.replace(",","|"),job_link.replace(",","|"))
-	    my_arr.append(j_obj)  #adding to array to write letter
+	    my_arr.append(j_obj)  #adding to array to write later
 	    # print(job_link+" "+job_name+" "+comp_name+"\n")
 	   # f.write(job_name.replace(",","|")+","+comp_name.replace(",","|")+","+job_link.replace(",","|")+"\n")
 	    i+=1
@@ -84,9 +80,11 @@ def surf_jobs():
     last_nmbr=driver.find_element_by_xpath("//*[@id=\"topPagging\"]/ul/li[7]/a").text  #click counter generation
     last_nmbr=last_nmbr.replace(".","") #extra ... removal
     max_clicks=int(last_nmbr) #number of next clicks
+    max_clicks-=1  #because first page is already loaded so one less click
+   
     
     i=0
-    while(i<1):
+    while(i<3):
         driver.find_element_by_xpath("//*[@id=\"jobList\"]/div[1]/div/div[24]/div[1]/div/div[1]/div/ul/li[2]/a").click()  #next button click
         page_src=driver.page_source
         process_data(page_src) #sending the page to bs to process and save
@@ -96,7 +94,12 @@ def surf_jobs():
     driver.quit()
     return
 
-print("here we go")
+print("Starting the task")
+start_time=time.time()
 surf_jobs()
+print("data collection was successful")
 save_to_csv()
-print("finished successfully\n")
+print("storing to file was successful")
+finish_time=time.time()
+print("It took %s seconds to complete",finish_time - start_time)
+print("Finished")

@@ -23,7 +23,7 @@
 <div></div>
 <?php 
    
-  //  echo $_POST["s"];
+    echo $_POST["s"];
     $file=fopen("jobs.csv","r");
     
     $skip=0;

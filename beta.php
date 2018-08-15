@@ -26,12 +26,11 @@
     <div class="row">
         <div class="col"></div>
         <div class="col">
-            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-                <form class="form-inline" action="search_result.php">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
-            </nav>
+            <form class="form-inline" action="search_result.php" method="post" >
+                <input class="form-control mr-lg-4" type="text" id="s" name="s" value="" placeholder="Search Jobs">
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+
         </div>
         <div class="col"></div>
 
@@ -66,7 +65,8 @@
         <div class="col"></div>
     </div>
 
-    <div class="row" align="center"> <!-- main things happens here -->
+    <div class="row" align="center">
+        <!-- main things happens here -->
         <div class="col"></div>
         <div class="col">
             <ul class="pagination pagination-sm">
@@ -74,7 +74,7 @@
                         for($i=0;$i<$all_job_count/10;$i++)
                         { ?>
 
-                <li class="page-item" id="<?php echo $i; ?>" >
+                <li class="page-item" id="<?php echo $i; ?>">
                     <a class="page-link" onclick="get_index(this)" id="<?php echo $i; ?>">
                         <?php echo $i; ?>
                     </a>
@@ -87,14 +87,14 @@
         </div>
         <div class="col"></div>
     </div>
-    
+
     <div class="row">
         <div class="col"></div>
-    <div class="col">
-        <h4 >Available jobs right now : <span id="count" class="badge badge-primary">New</span></h4>
-    </div>
-    <div class="col"></div>
-        
+        <div class="col">
+            <h4>Available jobs right now : <span id="count" class="badge badge-primary">New</span></h4>
+        </div>
+        <div class="col"></div>
+
     </div>
 
 </body>
