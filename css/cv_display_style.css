@@ -1,5 +1,5 @@
 .card {
-    opacity: 0.5;
+    
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 1px; /* 5px rounded corners */
@@ -10,7 +10,7 @@
     font-family: roboto;
     background-color: whitesmoke;
     backface-visibility: hidden;
-    opacity: 0.8;
+    opacity: 0.9;
    
 
       
@@ -27,11 +27,11 @@
 }
 
 .bottom{
- background-image: url("../img/bg.jpg"); 
+    background-image: url("../img/cof1.jpg"); 
     height: auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 1920px 768px;
+    background-size: cover;
 }
 
 .container{

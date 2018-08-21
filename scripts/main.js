@@ -1,6 +1,57 @@
 var card_count = 0;
 var all_job_count = 0;
 
+
+$(document).ready(function () {
+    $('#sbutton').click(function (a) {
+        a.preventDefault();
+        remove_card(); //clearing the card div
+        let key_item = $('#s').val();
+        key_item = key_item.toLowerCase();
+        //alert(key_item);
+        $.ajax({
+            url: 'jobs.csv',
+            type: "get",
+            dataType: "text",
+            success: function (data1) {
+                let arr = data1.split(/\r?\n|\r/);
+
+                for (let i = 1; i < arr.length-1; i++) {
+                    let line = arr[i].split(","); //all info title,company,link in one line
+                    
+                    let title = line[0].toLowerCase();
+                    let cmp = line[1].toLowerCase();
+                    
+                    let link = line[2];
+
+                    if (title.includes(key_item) || cmp.includes(key_item)) {   
+                        console.log(title);
+                       // add_card(i-1);  //because add card is 0 based index
+                        
+                        $("#mid").append('<div class="card"><h5>'+title+'</h5><h6>'+cmp+'</h6><a href="'+link+'">Read more</div>');
+                        
+                        card_count++;
+                        
+                    }
+
+                }
+            }
+        });
+    });
+});
+
+function search_item(e) {
+
+    $.ajax({
+        url: "jobs.csv",
+        dataType: "text",
+        success: function (data_rcv) {
+            var aray = data_rcv.split(/\r?\n|\r/);
+            console.log(aray.length);
+        }
+    });
+}
+
 function add_card(p1) {
     var lat = p1;
 
@@ -124,13 +175,13 @@ function load_init() {
 
             },
             error: function () {
-                alert('Some error found. Please try again!'); 
+                alert('Some error found. Please try again!');
             }
 
         });
-        
-        $('#0').addClass("active");  //0 page activated
-        
+
+        $('#0').addClass("active"); //0 page activated
+
     });
 
 
@@ -159,26 +210,25 @@ function load_cards(s_ind, f_ind) {
 
 function get_index(item) {
 
-    item.class="active";
-    
+    item.class = "active";
+
     var ind = item.innerHTML.replace(/\s+/g, ''); //removing white spaces
-    item.class='active';
-    var sel=item.id;
-    
-    $("opt")
+    item.class = 'active';
+    var sel = item.id;
+
+    //j$("opt")
     //console.log(ind);  //this this is the index from where cards should load
     //console.log(ind.length);
     var ff = (parseInt(ind) * 10).toString();
     var ee = ((parseInt(ind) * 10) + 10).toString();
     load_cards(ff, ee);
-    
-    $('#'+sel.toString()).siblings().removeClass("active"); // clearing previous selections
-    $('#'+sel.toString()).addClass("active");
-    
-    
+
+    $('#' + sel.toString()).siblings().removeClass("active"); // clearing previous selections
+    $('#' + sel.toString()).addClass("active");
+
+
 
 }
-
 
 
 
