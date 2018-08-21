@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <script src="https://code.jquery.com/jquery-1.12.0.min.js" integrity="sha256-Xxq2X+KtazgaGuA2cWR1v3jJsuMJUozyIXDB3e793L8=" crossorigin="anonymous"></script>
@@ -6,6 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 <script src="scripts/main.js"></script>
+<link rel="stylesheet" href="/css/animate.css" ;>
 
 <body onload="load_init()">
     <?php include"all_info.php"; ?>
@@ -81,7 +81,7 @@
         <div class="row" align="center">
             <!-- main things happens here -->
             <div class="col"></div>
-            <div class="col">
+            <div class="col" id="pagesection">
                 <ul class="pagination justify-content-center sm" style="margin:20px 0">
                     <?php 
                         for($i=0;$i<$all_job_count/10;$i++)
@@ -103,8 +103,8 @@
 
         <div class="row">
             <div class="col"></div>
-            <div class="col" align="center">
-                <h4>Available jobs right now : <span id="count" class="badge badge-primary">New</span></h4>
+            <div class="col" align="center" id="pagenumber">
+                <h4 class="animated shake">Available jobs right now : <span id="count" class="badge badge-primary">New</span></h4>
             </div>
             <div class="col"></div>
 

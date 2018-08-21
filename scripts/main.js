@@ -4,7 +4,7 @@ var all_job_count = 0;
 
 $(document).ready(function () {
     $('#sbutton').click(function (a) {
-        a.preventDefault();
+        a.preventDefault(); //stopping the reloading
         remove_card(); //clearing the card div
         let key_item = $('#s').val();
         key_item = key_item.toLowerCase();
@@ -15,25 +15,39 @@ $(document).ready(function () {
             dataType: "text",
             success: function (data1) {
                 let arr = data1.split(/\r?\n|\r/);
-
-                for (let i = 1; i < arr.length-1; i++) {
+                let match = 0;
+                for (let i = 1; i < arr.length - 1; i++) {
                     let line = arr[i].split(","); //all info title,company,link in one line
-                    
+
                     let title = line[0].toLowerCase();
                     let cmp = line[1].toLowerCase();
-                    
+
                     let link = line[2];
 
-                    if (title.includes(key_item) || cmp.includes(key_item)) {   
+                    if (title.includes(key_item) || cmp.includes(key_item)) {
                         console.log(title);
-                       // add_card(i-1);  //because add card is 0 based index
-                        
-                        $("#mid").append('<div class="card"><h5>'+title+'</h5><h6>'+cmp+'</h6><a href="'+link+'">Read more</div>');
-                        
+                        // add_card(i-1);  //because add card is 0 based index
+
+                        $("#mid").append('<div class="card"><h5>' + title + '</h5><h6>' + cmp + '</h6><a href="' + link + '">Read more</div>'); //jquery is <3 lol
+                        $('#mid').append('<br>'); //for the gap
                         card_count++;
-                        
+                        match++;
+
                     }
 
+                }
+
+                if (match == 0) {
+                    alert("Sorry couldn't find anything :( ...");
+                    load_init();
+                } else {
+                    $('#count').html('<h3>Results found on ' + key_item + ' : ' + match + '</h3>');
+                    $('#mid').prepend($('#count'));
+                    $('#pagenumber').hide();
+                    $('#pagesection').hide();
+                    $('#mid').prepend('<div class="row justify-content-center " ><button class="btn btn-success" type="button" onclick="load_init()">Go back <--</button></div>');
+                    $('#mid').append('<div class="row justify-content-center" ><button class="btn btn-primary" type="button" onclick="load_init()">Go back <--</button></div>');
+                
                 }
             }
         });
