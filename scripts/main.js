@@ -7,6 +7,7 @@ $(document).ready(function () {
         a.preventDefault(); //stopping the reloading
         remove_card(); //clearing the card div
         let key_item = $('#s').val();
+        $('#s').val('');
         key_item = key_item.toLowerCase();
         //alert(key_item);
         $.ajax({
@@ -41,19 +42,24 @@ $(document).ready(function () {
                     alert("Sorry couldn't find anything :( ...");
                     load_init();
                 } else {
+                    
                     $('#count').html('<h3>Results found on ' + key_item + ' : ' + match + '</h3>');
-                    $('#mid').prepend($('#count'));
+                   // $('#mid').prepend($('#count'));
                     $('#pagenumber').hide();
                     $('#pagesection').hide();
-                    $('#mid').prepend('<div class="row justify-content-center " ><button class="btn btn-success" type="button" onclick="load_init()">Go back <--</button></div>');
-                    $('#mid').append('<div class="row justify-content-center" ><button class="btn btn-primary" type="button" onclick="load_init()">Go back <--</button></div>');
+                  //  $('#mid').prepend('<div class="row justify-content-center " ><button class="btn btn-success" type="button" onclick="load_init()">Go back <--</button></div>');
+                    $('#mid').append('<div class="row justify-content-center" ><button class="btn btn-primary" type="button" id="" onclick="go_home()">Go back <--</button></div>');
                 
                 }
             }
         });
     });
 });
-
+function go_home()
+{
+    
+    window.location.href = "http://localhost/python/index.php"; //going to the home page
+}
 function search_item(e) {
 
     $.ajax({
@@ -195,6 +201,10 @@ function load_init() {
         });
 
         $('#0').addClass("active"); //0 page activated
+        /*$('#pagenumber').show();
+        $('#pagenumber').add($('#count'));
+        $('#pagesection').show();*/
+        
 
     });
 

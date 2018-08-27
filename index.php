@@ -1,113 +1,127 @@
-<?php include"all_info.php"; ?>
+<!DOCTYPE html>
 <html>
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://code.jquery.com/jquery-1.12.0.min.js" integrity="sha256-Xxq2X+KtazgaGuA2cWR1v3jJsuMJUozyIXDB3e793L8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/cv_display_style.css" ;>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-<script src="main.js"></script>
+<script src="scripts/main.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" ;>
 
-<!--div class="navbar">
+<body onload="load_init()">
+    <?php include"all_info.php"; ?>
 
-    <img src="img/uiu-logo.png">
-    
-    
-    <div class="topnav-right">
-    
-        <form class="colform" action="search_result.php" method="post">
-             <input class="search-box"name="s" id="s" type="text" value="" placeholder="Search Jobs" autocomplete="off">    
-        </form>
+    <head>
 
-        <form class="colform" action="#" method="post">
-            <button class="nav-btn" ><i class="material-icons">home</i> Home </button>
-        </form>
 
-        <form class="colform" action="cv_input.php" method="post">
-        <button type="submit" action="cv_input.php" class="nav-btn"><i class="material-icons">description</i>  CV </button>
-        </form>
 
-        <form class="colform" action="#" method="post">
-            <button  class="nav-btn"><i class="material-icons">account_box</i> Login </button>
-        </form>
 
-   
-    </div>
-</div-->
+        <!-- needed for the BS4  start -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <!-- needed for the BS4  end -->
+        <!-- navbar navbar-light bg-light -->
+        <div class="navbar navbar-expand-md bg-bright navbar-bright" style="position:fixed;">
+            <a class="navbar-brand" href="index.php">UIU Job Finder</a>
 
-<head>
+            <div class="col"></div>
+            <div class="row">
+                <div class="col">
+                    <form class="form-inline" method="post">
+                        <input class="form-control mr-lg-4 animated bounceInLeft" type="text" id="s" name="s" value="" placeholder="Search Jobs">
+                        <button class="btn btn-success animated bounceInLeft" id="sbutton" type="submit">Search</button>
 
-    <div class="navbar">
-        <img src="img/uiu-logo.png">
-        <ul>
+                    </form>
 
-            <li><a href="index.php"><i class="material-icons"style="position:relative;top:5px;">home</i>Home</a></li>
-            <li><a href="cv_input.php"><i class="material-icons"style="position:relative;top:5px;">description</i>CV</a></li>
-            <li><a href="#contact"><i class="material-icons"style="position:relative;top:5px;">account_box</i>Contact</a></li>
-            <li>
-                <form class="" action="search_result.php" method="post">
-                    <input class="search-box" name="s" id="s" type="text" value="" placeholder="Search Jobs" autocomplete="off">
-                    <button type="submit"><i class="material-icons">search</i></button>
-                </form>
-            </li>
-            <!--button onclick="doshit()">click me!</button-->
-
-        </ul>
-    </div>
-</head>
-<div style="padding-top:50px;"></div>
-<div class="bottom" style="font-family:roboto;">
-    <div style="padding-top:100px;"></div>
-
-    <?php
-//running demo scrapper to csv file
-   // shell_exec("python C:/XAMPP/htdocs/python/final_python.py 2>&1");
-    
-    $file=fopen("jobs.csv","r");
-    
-    $skip=0;
-    while(true)
-      {
-        $line=fgetcsv($file);
-        if($line==null) break;
-        
-        if($skip==0) 
-        {
-            $skip++;
-            continue;
-        }
-        
-       // array_push($all_jobs,$line);
-        ///this is where html begins
-       ?>
-        <div align="center">
-            <div class="card" align="center">
-                <link rel="stylesheet" href="css/cv_display_style.css">
-                <div class="container">
-
-                    <h4><b><?php echo $line[0];?></b></h4>
-                    <p>
-                        <?php echo $line[1];?>
-                    </p>
-                    <hr>
-                    <a href="<?php echo $line[2];?>" style="text-decoration:none;color:orange;"><b>Read more</b></a>
 
 
                 </div>
             </div>
 
-            <div style="padding-top:10px;"></div>
+
+            <div class="col"></div>
+            <form action="sign_in.php">
+                <button class="btn btn-primary" style="margin:5px;" id="btn_login" type="submit">Login</button>
+            </form>
+
+            <form action="cv_input.php" method="post">
+                <button class="btn btn-primary" id="btn_signup" style="margin:5px;" type="submit">Sign up</button>
+            </form>
 
         </div>
 
-        <?php
-        ///html ends here
-      } 
-   
-    fclose($file);
-    
- ?>
+    </head>
+    <div class="row" style="padding-bottom:50px;"></div>
 
-</div>
+    <!--script src="main.js"></script-->
+    <div class="bottom">
+
+        <!--div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div id="demo" align="center">
+                <h2 id="jinish" style="font-size: 30px;">Click me!</h2>
+                <button type="button" class="btn btn-primary" onclick="load_shit()">add card</button>
+                <h2 id="page_cnt" style="font-size: 30px;">Page count!</h2>
+                <button type="button" onclick="remove_card()">remove card</button>
+
+            </div>
+        </div>
+        <div class="col"></div>
+
+    </div-->
+
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <div id="mid" align="center">
+
+                    <!-- i forgot what happens here ow js does the magic :p -->
+                    <div style="padding-top:10px;"></div>
+
+                </div>
+
+            </div>
+
+            <div class="col"></div>
+        </div>
+
+        <div class="row" align="center">
+            <!-- main things happens here -->
+            <div class="col"></div>
+            <div class="col" id="pagesection">
+                <ul class="pagination justify-content-center sm" style="margin:20px 0">
+                    <?php 
+                        for($i=0;$i<$all_job_count/10;$i++)
+                        { ?>
+
+                    <li class="page-item" id="<?php echo $i; ?>">
+                        <a class="page-link" onclick="get_index(this)" id="<?php echo $i; ?>">
+                            <?php echo $i; ?>
+                        </a>
+                    </li>
+
+
+                    <?php   } ?>
+
+                </ul>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" align="center" id="pagenumber">
+                <h4 class="animated shake">Available jobs right now : <span id="count" class="badge badge-primary">New</span></h4>
+            </div>
+            <div class="col"></div>
+
+        </div>
+
+    </div>
+
+</body>
 
 </html>

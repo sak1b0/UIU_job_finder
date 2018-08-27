@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CV information</title>
-
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js" integrity="sha256-Xxq2X+KtazgaGuA2cWR1v3jJsuMJUozyIXDB3e793L8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
@@ -18,10 +18,10 @@
     <body>
 
 
-        <div class="container">
-            <form action="cv_display.php " method="post">
+        <div class="container" style="color:#28a745;">
+            <form action="#" method="post">
                 <div class="row">
-                    <h4>Information for CV</h4>
+                    <h4 style="color:#28a745;">Information for CV</h4>
                     <div class="input-group input-group-icon">
                         <input name="name" type="text" placeholder="Full Name" />
                         <div class="input-icon"><i class="fa fa-user"></i></div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="row">
                     <div class="col-half">
-                        <h4>Date of Birth</h4>
+                        <h4 style="color:#28a745;">Date of Birth</h4>
                         <div class="input-group">
                             <div class="col-sixth">
                                 <input name="date" type="date" placeholder="Date" />
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="col-half">
-                        <h4>Gender</h4>
+                        <h4 style="color:#28a745;">Gender</h4>
                         <div class="input-group">
                             <input name="gender" type="radio" value="male" id="gender-male" />
                             <label for="gender-male">Male</label>
@@ -80,7 +80,7 @@
 
                 <!--skill starts here -->
                 <div class="row">
-                    <h4>Please select your Skill Set</h4>
+                    <h4 style="color:#28a745;">Please select your Skill Set</h4>
                 </div>
 
                 <div class="row">
@@ -129,26 +129,35 @@
                 <!--skill ends here -->
 
                 <div class="row">
-                    <h4>Achievements/ECC</h4>
+                    <h4 style="color:#28a745;">Achievements/ECC</h4>
                     <div class="input-group input-group-icon">
                         <textarea placeholder="e.g. programming contests, hackathons etc..." rows="5" cols="60"></textarea>
                     </div>
                 </div>
 
                 <div class="row">
-                    <h4>Terms and conditions</h4>
+                    <h4 style="color:#28a745;">Terms and conditions</h4>
                     <div class="row">
 
                         <input class="col" type="checkbox" id="terms" required>
-                        <label for="terms" style="float:left;"><h7>I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</h7></label>
+                        <label for="terms" style="float:left;color:#28a745;"><h7>I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</h7></label>
                     </div>
                 </div>
 
-                <div class="row">
-                    <form action="/huda.php" method="post">
-                        <a><button class="cv-submit" type="submit" name="submit" >Submit</button></a>
-                    </form>
 
+                <div class="row">
+
+                    <!--form action="#" method="post"-->
+                    <a><button id="Submit" class="btn btn-success" type="submit" name="submit"  >Submit</button></a>
+                    <!--/form-->
+                    <script>
+                        $(document).ready(function() {
+                            $('#Submit').click(function() {
+                                alert('Not available right now');
+                            });
+                        });
+
+                    </script>
                 </div>
 
             </form>

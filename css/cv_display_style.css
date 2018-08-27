@@ -29,11 +29,21 @@
 
 .bottom{
     background-image: url("../img/cof1.jpg"); 
-    height: auto;
+    height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; 
 }
+
+.sign_in{
+    background-image: url("../img/cof1.jpg"); 
+    height: 1080px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+}
+
+
 
 .container{
    
