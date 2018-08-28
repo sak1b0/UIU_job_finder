@@ -12,9 +12,6 @@
 
     <head>
 
-
-
-
         <!-- needed for the BS4  start -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -22,7 +19,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <!-- needed for the BS4  end -->
         <!-- navbar navbar-light bg-light -->
-        <div class="navbar navbar-expand-md bg-bright navbar-bright" style="position:fixed;">
+        <div class="navbar navbar-expand-md bg-bright navbar-bright" style="position:fixed; white-space: nowrap; ">
             <a class="navbar-brand" href="index.php">UIU Job Finder</a>
 
             <div class="col"></div>
@@ -55,23 +52,7 @@
     <div class="row" style="padding-bottom:50px;"></div>
 
     <!--script src="main.js"></script-->
-    <div class="bottom">
-
-        <!--div class="row">
-        <div class="col"></div>
-        <div class="col">
-            <div id="demo" align="center">
-                <h2 id="jinish" style="font-size: 30px;">Click me!</h2>
-                <button type="button" class="btn btn-primary" onclick="load_shit()">add card</button>
-                <h2 id="page_cnt" style="font-size: 30px;">Page count!</h2>
-                <button type="button" onclick="remove_card()">remove card</button>
-
-            </div>
-        </div>
-        <div class="col"></div>
-
-    </div-->
-
+    <div class="bottom" style="padding-top:15px;">
 
         <div class="row">
             <div class="col"></div>
@@ -92,9 +73,9 @@
             <!-- main things happens here -->
             <div class="col"></div>
             <div class="col" id="pagesection">
-                <ul class="pagination justify-content-center sm" style="margin:20px 0">
+                <ul class="pagination justify-content-center sm" style="margin:5px 0">
                     <?php 
-                        for($i=0;$i<$all_job_count/10;$i++)
+                        for($i=0;$i<($all_job_count/10);$i++)
                         { ?>
 
                     <li class="page-item" id="<?php echo $i; ?>">
@@ -114,7 +95,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col" align="center" id="pagenumber">
-                <h4 class="animated shake">Available jobs right now : <span id="count" class="badge badge-primary">New</span></h4>
+                <h4 class="animated shake">Available jobs right now : <span id="count" class="badge badge-primary">Loading</span></h4>
             </div>
             <div class="col"></div>
 

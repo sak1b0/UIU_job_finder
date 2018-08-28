@@ -7,7 +7,7 @@
 <script src="scripts/main.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" ;>
 
-<body class="sign_in" style="overflow:hidden;">
+<body class="sign_in" >
     <?php //include"all_info.php"; ?>
 
     <head>
@@ -21,8 +21,17 @@
         <!-- needed for the BS4  end -->
         <!-- navbar navbar-light bg-light -->
         <div class="navbar navbar-expand-md bg-bright navbar-bright" style="position:fixed;">
-            <a class="navbar-brand" href="index.php">UIU Job Finder</a>
 
+            <a class="navbar-brand" href="index.php">UIU Job Finder</a>
+            <div class="col"></div>
+            <div class="row">
+                <div class="col"> </div>
+            </div>
+
+
+            <div class="col"></div>
+
+            <a href="#" id="who" style="padding-right:10px;">Not logged in</a>
 
 
         </div>
@@ -36,7 +45,7 @@
 
 
 
-        <div class="row">
+        <div class="row" id="mid_section">
             <div class="col"></div>
             <div class="col">
                 <div style="padding-top:150px;"></div>
@@ -44,22 +53,18 @@
                     <div class="card" style="padding-top:15px; height:220px;">
                         <form class="form" method="post">
                             <div style="padding-top:10px;">
-                                <input class="form-control mr-lg-6 " type="text" id="u_id" name="u_id" value="" placeholder="UIU ID" style="width:350px;"> &nbsp;
-                                <input class="form-control mr-lg-6 " type="text" id="u_id" name="u_id" value="" placeholder="Password" style="width:350px;">
+                                <input class="form-control mr-lg-6 " type="text" id="u_id" name="u_id" value="" placeholder="UIU ID" style="width:350px;" required> &nbsp;
+                                <input class="form-control mr-lg-6 " type="password" id="u_pw" name="u_id" value="" placeholder="Password" style="width:350px;" required>
                             </div>
 
 
 
                         </form> &nbsp;
                         <script>
-                            $(document).ready(function() {
-                                $('#login_button').click(function() {
-                                    alert('Not available right now');
-                                });
-                            });
+
 
                         </script>
-                        <button class="btn btn-success" id="login_button" type="submit" style="width:70px; padding-bottom:30px;">Login</button>
+                        <button class="btn btn-success" id="login_button" type="submit" style="width:70px; padding-bottom:30px;" onclick="login()">Login</button>
                         <a href="#">Forgot password?</a>
                     </div>
                     <!-- i forgot what happens here :p -->
@@ -70,6 +75,17 @@
             </div>
 
             <div class="col"></div>
+        </div>
+        
+        <div class="row" >
+        <div class="col" id="lefty" style="padding-top:30px;">
+            <!-- user info -->
+        </div> 
+        <div class="col" id="suggestions" style="padding-top:30px;">
+            
+            <!-- job suggestions -->
+            </div>
+        <div class="col"></div>
         </div>
 
 

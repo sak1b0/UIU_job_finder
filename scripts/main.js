@@ -2,6 +2,7 @@ var card_count = 0;
 var all_job_count = 0;
 
 
+
 $(document).ready(function () {
     $('#sbutton').click(function (a) {
         a.preventDefault(); //stopping the reloading
@@ -26,7 +27,7 @@ $(document).ready(function () {
                     let link = line[2];
 
                     if (title.includes(key_item) || cmp.includes(key_item)) {
-                        console.log(title);
+                        // console.log(title);
                         // add_card(i-1);  //because add card is 0 based index
 
                         $("#mid").append('<div class="card"><h5>' + title + '</h5><h6>' + cmp + '</h6><a href="' + link + '">Read more</div>'); //jquery is <3 lol
@@ -42,24 +43,76 @@ $(document).ready(function () {
                     alert("Sorry couldn't find anything :( ...");
                     load_init();
                 } else {
-                    
+
                     $('#count').html('<h3>Results found on ' + key_item + ' : ' + match + '</h3>');
-                   // $('#mid').prepend($('#count'));
+                    // $('#mid').prepend($('#count'));
                     $('#pagenumber').hide();
                     $('#pagesection').hide();
-                  //  $('#mid').prepend('<div class="row justify-content-center " ><button class="btn btn-success" type="button" onclick="load_init()">Go back <--</button></div>');
+                    //  $('#mid').prepend('<div class="row justify-content-center " ><button class="btn btn-success" type="button" onclick="load_init()">Go back <--</button></div>');
                     $('#mid').append('<div class="row justify-content-center" ><button class="btn btn-primary" type="button" id="" onclick="go_home()">Go back <--</button></div>');
-                
+
                 }
             }
         });
     });
 });
-function go_home()
-{
-    
-    window.location.href = "http://localhost/python/index.php"; //going to the home page
+
+function login() {
+    /* $(document).ready(function() {
+     $('#login_button').click(function() {
+     alert('Not available right now');
+        });
+    }); */
+    var user1 = $('#u_id').val();
+    var pw1 = $('#u_pw').val();
+    if (user1 == "123" && pw1 == "123") {
+        //alert("successfully logged in");
+        $('#mid_section').remove();
+        $('#who').get(0).lastChild.nodeValue = 'Logout';
+        $('#lefty').append('<div class="card" align="center" style="position:fixed;"><h5>' + 'Name: Sakib' + '</h5><h5>ID :' + user1 + '</h5>' + '<h6>Current Status: <font color="green"><b>Available</b></font></h6>' + '<h7>Skills: #java #spring #python</h7>' + '</div>');
+
+        $.ajax({
+            url: 'jobs.csv',
+            type: "get",
+            dataType: "text",
+            success: function (data1) {
+                let arr = data1.split(/\r?\n|\r/);
+                let match = 0;
+                for (let i = 1; i < arr.length - 1; i++) {
+                    let line = arr[i].split(","); //all info title,company,link in one line
+
+                    let title = line[0].toLowerCase();
+                    let cmp = line[1].toLowerCase();
+
+                    let link = line[2];
+
+                    if (title.includes('java') || title.includes('python') || title.includes('spring')) {
+                        $("#suggestions").append('<div class="card" align="center"><h5>' + title + '</h5><h6>' + cmp + '</h6><a href="' + link + '">Read more</div>'); //jquery is <3 lol
+                        $('#suggestions').append('<br>'); //for the gap
+
+                    }
+
+                }
+
+
+            }
+        });
+
+        // $('#suggestions').append('<div class="card">hi</div>'); ///dummy one
+
+    } else {
+        alert("Invalid ID/Password");
+        $('#u_id').val('');
+        $('#u_pw').val('');
+    }
+
 }
+
+function go_home() {
+
+    window.location.href = "https://uiujob.000webhostapp.com/"; //going to the home page
+}
+
 function search_item(e) {
 
     $.ajax({
@@ -204,7 +257,7 @@ function load_init() {
         /*$('#pagenumber').show();
         $('#pagenumber').add($('#count'));
         $('#pagesection').show();*/
-        
+
 
     });
 
